@@ -97,6 +97,11 @@ searobots-league/
 ├── README.md                 # You are here
 ├── RULES.md                  # Official league rules & code restrictions
 ├── LICENSE
+├── demo/                     # Always-ready AI demo league for end-to-end testing
+│   ├── season.json
+│   └── entries/
+│       ├── gemini-neon.json  # Standalone searobots-gemini-neon
+│       └── starter-sub.json  # Baseline searobots-template
 └── <YEAR>/
     └── <MONTH>/              # e.g. 2026/12/
         ├── season.json       # Pinned SeaRobots version, deadline, post-freeze masterSeed

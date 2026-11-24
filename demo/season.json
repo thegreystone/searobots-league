@@ -1,0 +1,10 @@
+{
+  "season": "demo",
+  "title": "SeaRobots Demo AI League",
+  "searobotsVersion": "0.1.2",
+  "allowDuplicateOwners": true,
+  "bestOf": 7,
+  "maxSuddenDeath": 6,
+  "masterSeed": "5eab07de01234567",
+  "seedProof": null
+}

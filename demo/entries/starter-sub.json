@@ -1,0 +1,11 @@
+{
+  "slug": "starter-sub",
+  "name": "Starter Sub",
+  "shortName": "ST",
+  "githubUser": "thegreystone",
+  "repo": "https://github.com/thegreystone/searobots-template",
+  "commit": "a7c82a624f50ee47cbc09d3d89aa9b0564b88faa",
+  "controllerClass": "com.example.mysub.StarterSubmarine",
+  "license": "BSD-3-Clause",
+  "description": "Simple, readable baseline submarine from searobots-template."
+}

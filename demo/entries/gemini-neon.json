@@ -1,0 +1,11 @@
+{
+  "slug": "gemini-neon",
+  "name": "Gemini Neon",
+  "shortName": "GN",
+  "githubUser": "thegreystone",
+  "repo": "https://github.com/thegreystone/searobots-gemini-neon",
+  "commit": "b6d9b7d0ae3d3717d9b979f3d73ed6d0d14e15f0",
+  "controllerClass": "se.hirt.searobots.sub.geminineon.GeminiAttackSub",
+  "license": "BSD-3-Clause",
+  "description": "Pulse-and-glide stealth hunter with staggered two-torpedo kill salvos."
+}
