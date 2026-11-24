@@ -1,0 +1,10 @@
+{
+  "slug": "claude",
+  "name": "Claude",
+  "shortName": "CL",
+  "house": true,
+  "controllerClass": "se.hirt.searobots.engine.ships.claude.ClaudeAttackSub",
+  "repo": "https://github.com/thegreystone/searobots",
+  "license": "BSD-3-Clause",
+  "description": "Official built-in Claude-authored attack submarine."
+}

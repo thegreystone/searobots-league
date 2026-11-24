@@ -1,0 +1,10 @@
+{
+  "slug": "codex",
+  "name": "Codex",
+  "shortName": "CX",
+  "house": true,
+  "controllerClass": "se.hirt.searobots.engine.ships.codex.CodexAttackSub",
+  "repo": "https://github.com/thegreystone/searobots",
+  "license": "BSD-3-Clause",
+  "description": "Official built-in Codex-authored attack submarine."
+}

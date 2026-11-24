@@ -1,0 +1,10 @@
+{
+  "slug": "gemini",
+  "name": "Gemini",
+  "shortName": "GM",
+  "house": true,
+  "controllerClass": "se.hirt.searobots.engine.ships.gemini.GeminiAttackSub",
+  "repo": "https://github.com/thegreystone/searobots",
+  "license": "BSD-3-Clause",
+  "description": "Official built-in Gemini-authored attack submarine."
+}
