@@ -41,10 +41,23 @@ All entries undergo an automated AI review and human approval check for good-fai
 
 ## 4. Tournament Format
 - **Single-elimination knockout bracket** sized to the next power of two (`B = nextPow2(N)`),
-  with `B - N` Round 1 byes awarded to top seeds (returning finalists/semifinalists from
-  the prior season, then deterministic seeded draw).
+  with every entrant assigned a draw number by a reproducible random shuffle. Returning
+  finalists take part in the same draw. The first `B - N` randomly drawn numbers receive
+  Round 1 byes, distributed across the bracket's wings.
 - **Fair seeds:** After registration freezes, the tournament `masterSeed` is derived from
   the frozen entries commit SHA combined with a public verifiable randomness beacon pulse.
+- **Draw announcement:** Record and publish every opening matchup, bye, and future bracket slot
+  before running tournament combat. The immutable draw also records the pinned entries,
+  match settings, engine version, and seed proof. Later rounds advance the winners along
+  this bracket without redrawing opponents.
+- **Viewing periods:** Wait **48 hours after the draw is published before Round 1**. After
+  each round, publish its results, winning Showreels, and replay bundles, then wait at least
+  another **48 hours** before running the next round, including the Final. The interval is
+  recorded as `roundIntervalHours` in `season.json`; a delayed match or publication shifts
+  the next round later. The website shows upcoming pairings and the earliest next start time.
+- **Frozen entries:** The same recorded commits and match settings apply to every round;
+  participants cannot replace a submarine between rounds. Completed matchups are checkpointed
+  so interrupted runs resume without repeating them.
 - **Best-of-33 combat series (`Bo33`):**
   - Standard combat match config: 2-hour max simulation time (50 Hz), 8 torpedoes, 1000 HP,
     plus 25 seconds of post-decision aftermath recorded for Showreels.

@@ -5,6 +5,7 @@
   "searobotsVersion": "0.1.3",
   "registrationDeadlineUtc": "2026-11-30T23:59:59Z",
   "tournamentStartUtc": "2026-12-01T00:05:00Z",
+  "roundIntervalHours": 48,
   "bestOf": 33,
   "maxSuddenDeath": 6,
   "masterSeed": null,

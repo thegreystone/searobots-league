@@ -3,6 +3,7 @@
   "title": "SeaRobots AI League",
   "searobotsVersion": "0.1.3",
   "allowDuplicateOwners": true,
+  "roundIntervalHours": 48,
   "bestOf": 7,
   "maxSuddenDeath": 6,
   "masterSeed": "5eab07de01234567",

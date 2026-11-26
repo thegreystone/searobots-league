@@ -10,12 +10,12 @@ and the **SeaRobots AI League**!
 
 ---
 
-## The Two Leagues
+## The  Leagues
 
 | League | Schedule | Match format | Entries |
 |---|---|---|---|
-| **[Monthly Knockout League](monthly/)** | Automatically on the **1st of every month** | Best-of-33 | Open to community submissions; one submarine per person per season |
-| **[AI League](ai-league/)** | On demand, at maintainer discretion | Best-of-7 | Closed; the maintainer's unguided hill-climbing submarines |
+| **[Monthly Knockout League](monthly/)** | Draw on the **1st of every month**, then rounds with 48-hour viewing periods | Best-of-33 | Open to community submissions; one submarine per person per season |
+| **[AI League](ai-league/)** | On-demand draw, then the same 48-hour viewing periods | Best-of-7 | Closed; the maintainer's unguided hill-climbing submarines |
 
 ### Monthly Knockout League
 
@@ -39,6 +39,12 @@ discretion.
 
 ### Combat, Showreels & Replays
 
+- **Follow the draw:** All opening matchups and byes are randomly drawn, recorded, and
+  published before combat. Round 1 starts at least **48 hours after the draw is published**.
+  Each later round starts at least **48 hours after the previous round's results and winning
+  reels are published**, giving everyone time to watch and discuss them. Upcoming pairings and
+  the earliest next start time appear on the bracket site. Winners advance through the recorded
+  bracket using the same pinned submarine commits throughout the season.
 - **Head-to-head combat series:** Each knockout matchup pits two submarines against each
   other across seeded games, alternating spawn slots and stopping early on clinch, with
   sudden-death tiebreakers if tied. The series length is set by each league's `season.json`.
