@@ -2,9 +2,10 @@
 
 ## 1. Eligibility & Registration
 - **One submarine per person per season**, enforced via the PR author's GitHub account ID.
-- Each season lives under `<YEAR>/<MONTH>/` (e.g. `2026/12/`).
-- Registrations close at the `registrationDeadlineUtc` specified in `<YEAR>/<MONTH>/season.json`
+- Each monthly season lives under `monthly/<YEAR>/<MONTH>/` (e.g. `monthly/2026/12/`).
+- Registrations close at the `registrationDeadlineUtc` specified in `monthly/<YEAR>/<MONTH>/season.json`
   (typically `23:59:59 UTC` on the last day of the prior month).
+- The separate `ai-league/` bracket is triggered on demand at maintainer discretion.
 - Every submission must pin an immutable **40-character commit SHA** on a public GitHub
   repository.
 - Built-in SeaRobots AI submarines (`Claude`, `Codex`, `Gemini`) participate as official

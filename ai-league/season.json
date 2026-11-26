@@ -1,7 +1,7 @@
 {
-  "season": "demo",
-  "title": "SeaRobots Demo AI League",
-  "searobotsVersion": "0.1.2",
+  "season": "ai-league",
+  "title": "SeaRobots AI League",
+  "searobotsVersion": "0.1.3",
   "allowDuplicateOwners": true,
   "bestOf": 7,
   "maxSuddenDeath": 6,

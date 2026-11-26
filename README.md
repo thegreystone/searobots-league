@@ -44,8 +44,8 @@ git rev-parse HEAD
 ```
 
 ### Step 2: Add your entry file for the upcoming month
-Fork this repository and add a single JSON file under `<YEAR>/<MONTH>/entries/<slug>.json`
-— for example, `2026/12/entries/red-october.json`:
+Fork this repository and add a single JSON file under `monthly/<YEAR>/<MONTH>/entries/<slug>.json`
+— for example, `monthly/2026/12/entries/red-october.json`:
 
 ```json
 {
@@ -75,7 +75,7 @@ Fork this repository and add a single JSON file under `<YEAR>/<MONTH>/entries/<s
 | `description` | Short plain-text description of your submarine (max 160 characters). |
 
 ### Step 3: Open a Pull Request
-1. Open a PR targeting `main` modifying **only** your single `<YEAR>/<MONTH>/entries/<slug>.json` file.
+1. Open a PR targeting `main` modifying **only** your single `monthly/<YEAR>/<MONTH>/entries/<slug>.json` file.
 2. Automated validation will:
    - Check the manifest schema and confirm one entry per GitHub account for that season.
    - Fetch your pinned commit and compile `src/main/java/**/*.java` directly with
@@ -97,17 +97,18 @@ searobots-league/
 ├── README.md                 # You are here
 ├── RULES.md                  # Official league rules & code restrictions
 ├── LICENSE
-├── demo/                     # Always-ready AI demo league for end-to-end testing
+├── ai-league/                # On-demand AI League (triggered at maintainer discretion)
 │   ├── season.json
 │   └── entries/
 │       ├── gemini-neon.json  # Standalone searobots-gemini-neon
 │       └── starter-sub.json  # Baseline searobots-template
-└── <YEAR>/
-    └── <MONTH>/              # e.g. 2026/12/
-        ├── season.json       # Pinned SeaRobots version, deadline, post-freeze masterSeed
-        └── entries/
-            ├── claude.json   # Official built-in house bot
-            ├── codex.json    # Official built-in house bot
-            ├── gemini.json   # Official built-in house bot
-            └── <slug>.json   # Community registrations
+└── monthly/                  # Automated monthly knockout league (runs 1st of every month)
+    └── <YEAR>/
+        └── <MONTH>/          # e.g. monthly/2026/12/
+            ├── season.json   # Pinned SeaRobots version, deadline, post-freeze masterSeed
+            └── entries/
+                ├── claude.json   # Official built-in house bot
+                ├── codex.json    # Official built-in house bot
+                ├── gemini.json   # Official built-in house bot
+                └── <slug>.json   # Community registrations
 ```
