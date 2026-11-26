@@ -1,6 +1,7 @@
-# SeaRobots Monthly League
+# SeaRobots Leagues
 
-Welcome to the official registration repository for the **SeaRobots Monthly Knockout League**!
+Welcome to the home of the **SeaRobots Monthly Knockout League**
+and the **SeaRobots AI League**!
 
 - **Simulator & 3D Viewer:** [thegreystone/searobots](https://github.com/thegreystone/searobots)
 - **Starter Submarine Template:** [thegreystone/searobots-template](https://github.com/thegreystone/searobots-template)
@@ -9,22 +10,48 @@ Welcome to the official registration repository for the **SeaRobots Monthly Knoc
 
 ---
 
-## How the League Works
+## The Two Leagues
 
-- **Monthly knockout tournament:** Runs on the **1st of every month** (registrations close
-  at `23:59:59 UTC` on the last day of the preceding month).
-- **Best-of-33 combat series:** Each knockout matchup pits two submarines head-to-head on
-  up to 33 random seeds (alternating spawn slots, stopping early on clinch, with
-  sudden-death tiebreakers if tied).
+| League | Schedule | Match format | Entries |
+|---|---|---|---|
+| **[Monthly Knockout League](monthly/)** | Automatically on the **1st of every month** | Best-of-33 | Open to community submissions; one submarine per person per season |
+| **[AI League](ai-league/)** | On demand, at maintainer discretion | Best-of-7 | Closed; the maintainer's unguided hill-climbing submarines |
+
+### Monthly Knockout League
+
+The monthly league is open to community submissions. Registrations close at
+`23:59:59 UTC` on the last day of the preceding month; the exact deadline and pinned
+SeaRobots version are recorded in `monthly/<YEAR>/<MONTH>/season.json`.
+
+Each season includes the official built-in **Claude**, **Codex**, and **Gemini** house
+submarines alongside community entries. The one-submarine limit is enforced per season
+via your GitHub account ID (no email addresses or personal data are stored in this repository).
+
+### AI League
+
+The AI League is a **closed league** comprising the maintainer's unguided hill-climbing
+submarine repositories, such as `submarine-claude-opus55`. It is not open to community
+submissions.
+
+Entries are maintained under [`ai-league/entries/`](ai-league/entries/), with settings in
+[`ai-league/season.json`](ai-league/season.json). Tournaments run on demand at maintainer
+discretion.
+
+### Combat, Showreels & Replays
+
+- **Head-to-head combat series:** Each knockout matchup pits two submarines against each
+  other across seeded games, alternating spawn slots and stopping early on clinch, with
+  sudden-death tiebreakers if tied. The series length is set by each league's `season.json`.
 - **Spectacle & replays:** Every knockout matchup publishes an automatically rendered 3D
   **Showreel** of the winner's most spectacular victory plus a downloadable `.zip` bundle
   of all `.srl` replays so you can inspect every game in the SeaRobots 3D viewer.
-- **One submarine per person:** Enforced per season via your GitHub account ID (no email
-  addresses or personal data are stored in this repository).
 
 ---
 
-## How to Register Your Submarine (PR Guide)
+## How to Register for the Monthly League (PR Guide)
+
+Community registration is available only for the monthly league. Follow the steps below
+to submit your submarine.
 
 ### Step 1: Build and test your submarine
 Start from [searobots-template](https://github.com/thegreystone/searobots-template)
@@ -83,7 +110,7 @@ Fork this repository and add a single JSON file under `monthly/<YEAR>/<MONTH>/en
    - Run a deterministic bytecode allowlist scan and an AI good-faith / anti-cheat audit.
    - Run a sandboxed smoke match to verify your submarine runs cleanly without crashing
      or violating CPU/telemetry guardrails.
-3. Once checks pass and your PR is merged, you're locked in for the season!
+3. Once checks pass and your PR is merged, you're registered for the monthly season!
 
 Want to improve your sub before the deadline? Simply open a new PR updating the `commit`
 SHA in your entry file any time before the registration freeze.
@@ -95,14 +122,13 @@ SHA in your entry file any time before the registration freeze.
 ```text
 searobots-league/
 ├── README.md                 # You are here
-├── RULES.md                  # Official league rules & code restrictions
+├── RULES.md                  # Official rules & code restrictions
 ├── LICENSE
-├── ai-league/                # On-demand AI League (triggered at maintainer discretion)
-│   ├── season.json
+├── ai-league/                # Closed AI League (unguided hill-climbing submarines)
+│   ├── season.json           # Pinned SeaRobots version, match settings & masterSeed
 │   └── entries/
-│       ├── gemini-neon.json  # Standalone searobots-gemini-neon
-│       └── starter-sub.json  # Baseline searobots-template
-└── monthly/                  # Automated monthly knockout league (runs 1st of every month)
+│       └── <slug>.json       # Maintainer-managed entries
+└── monthly/                  # Monthly Knockout League (best-of-33; runs on the 1st)
     └── <YEAR>/
         └── <MONTH>/          # e.g. monthly/2026/12/
             ├── season.json   # Pinned SeaRobots version, deadline, post-freeze masterSeed
