@@ -1,0 +1,15 @@
+{
+  "season": "2027-01",
+  "title": "SeaRobots Open League",
+  "year": 2027,
+  "month": 1,
+  "searobotsVersion": "0.1.5",
+  "reviewWindowStartUtc": "2026-12-25T00:00:00Z",
+  "registrationDeadlineUtc": "2026-12-31T23:59:59Z",
+  "tournamentStartUtc": "2027-01-01T00:05:00Z",
+  "roundIntervalHours": 48,
+  "bestOf": 17,
+  "maxSuddenDeath": 6,
+  "masterSeed": null,
+  "seedProof": null
+}
