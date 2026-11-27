@@ -1,0 +1,11 @@
+{
+  "slug": "opus-5-5",
+  "name": "Opus 5.5",
+  "shortName": "O5",
+  "githubUser": "thegreystone",
+  "repo": "https://github.com/thegreystone/searobots-claude-opus55",
+  "commit": "f41988a9a3e4424ee3e9419b20629d5cf10d25d8",
+  "controllerClass": "se.hirt.searobots.sub.opus55.Opus55Submarine",
+  "license": "BSD-3-Clause",
+  "description": "Silent passive hunter by Claude Opus 5.5 that tracks target motion and fires salvos on the run."
+}
