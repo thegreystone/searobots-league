@@ -4,6 +4,7 @@
   "year": 2026,
   "month": 12,
   "searobotsVersion": "0.1.3",
+  "reviewWindowStartUtc": "2026-11-24T00:00:00Z",
   "registrationDeadlineUtc": "2026-11-30T23:59:59Z",
   "tournamentStartUtc": "2026-12-01T00:05:00Z",
   "roundIntervalHours": 48,

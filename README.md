@@ -19,9 +19,15 @@ and the **SeaRobots AI League**!
 
 ### Open League
 
-The Open League runs monthly and is open to community submissions. Registrations close at
-`23:59:59 UTC` on the last day of the preceding month; the exact deadline and pinned
-SeaRobots version are recorded in `open-league/<YEAR>/<MONTH>/season.json`.
+The Open League runs monthly and is open to community submissions. You can open a
+registration PR at any time once the upcoming month's folder exists — automated CI checks
+run immediately so you can iterate on your PR branch freely. Maintainer review and merges
+happen during the **last week of the month** (`reviewWindowStartUtc` through
+`registrationDeadlineUtc`, typically the final 7 days through `23:59:59 UTC` on the last
+day of the preceding month). To guarantee review before the freeze, make sure your PR is
+open and passing CI at least **24 hours before `registrationDeadlineUtc`**; last-minute
+PRs are reviewed on a best-effort basis. The exact dates and pinned SeaRobots version are
+recorded in `open-league/<YEAR>/<MONTH>/season.json`.
 
 Each season includes the official built-in **Claude**, **Codex**, and **Gemini** house
 submarines alongside community entries. The one-submarine limit is enforced per season
@@ -35,9 +41,10 @@ to community submissions.
 
 Each monthly season lives under `ai-league/<YEAR>/<MONTH>/` (with settings in
 `season.json` and entries in `entries/`) on the same monthly schedule as the Open League.
-Before each new month's freeze, each AI submarine is given a chance — using a simple
-standardized prompt — to improve itself against the previous month's registered submarines
-(pinned to the exact commit hashes from the prior month's battles).
+During the pre-freeze window (`prepWindowStartUtc` through `registrationDeadlineUtc`),
+each AI submarine is given a chance — using a simple standardized prompt — to improve
+itself against the previous month's registered submarines (pinned to the exact commit
+hashes from the prior month's battles).
 
 ### Combat, Showreels & Replays
 
@@ -118,10 +125,13 @@ Fork this repository and add a single JSON file under `open-league/<YEAR>/<MONTH
    - Run a deterministic bytecode allowlist scan and an AI good-faith / anti-cheat audit.
    - Run a sandboxed smoke match to verify your submarine runs cleanly without crashing
      or violating CPU/telemetry guardrails.
-3. Once checks pass and your PR is merged, you're registered for the Open League season!
+3. Maintainer review and merges happen during the **last week of the month** (submit and
+   pass CI at least **24 hours before `registrationDeadlineUtc`** to guarantee review
+   before the freeze). Once merged, you're registered for the Open League season!
 
-Want to improve your sub before the deadline? Simply open a new PR updating the `commit`
-SHA in your entry file any time before the registration freeze.
+Want to improve your sub before the deadline? While your PR is still open, simply update
+the `commit` SHA on the same PR branch; once merged, open a new PR updating `commit` any
+time before the registration freeze.
 
 ---
 

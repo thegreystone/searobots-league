@@ -14,6 +14,12 @@
 - Both leagues run monthly: registrations close at the `registrationDeadlineUtc` specified
   in `<league>/<YEAR>/<MONTH>/season.json` (typically `23:59:59 UTC` on the last day of
   the prior month), with the draw on the 1st of the month.
+- **PR submission & review cadence (Open League):** Registration PRs may be opened as soon
+  as the upcoming season folder exists, and automated CI validation runs immediately.
+  Human good-faith review and PR merges happen during the **last week of the month**
+  (`reviewWindowStartUtc` through `registrationDeadlineUtc`). PRs opened and passing CI at
+  least **24 hours before `registrationDeadlineUtc`** are guaranteed review before the
+  freeze; later PRs are best-effort and may wait for the following month's season.
 - Every submission must pin an immutable **40-character commit SHA** on a public GitHub
   repository.
 
@@ -47,9 +53,10 @@ All entries undergo an automated AI review and human approval check for good-fai
 
 ## 4. Tournament Format
 - **Single-elimination knockout bracket** sized to the next power of two (`B = nextPow2(N)`),
-  with every entrant assigned a draw number by a reproducible random shuffle. Returning
-  finalists take part in the same draw. The first `B - N` randomly drawn numbers receive
-  Round 1 byes, distributed across the bracket's wings.
+  giving `log2(B)` rounds (so total tournament duration depends on the number of registered
+  entries). Every entrant is assigned a draw number by a reproducible random shuffle.
+  Returning finalists take part in the same draw. The first `B - N` randomly drawn numbers
+  receive Round 1 byes, distributed across the bracket's wings.
 - **Fair seeds:** After registration freezes, the tournament `masterSeed` is derived from
   the frozen entries commit SHA combined with a public verifiable randomness beacon pulse.
   Individual matchup and game seeds are deterministically derived from `masterSeed` and
