@@ -1,0 +1,62 @@
+# Copy to .github/workflows/validate-registration-pr.yml in searobots-league.
+# This workflow never checks out or executes PR-controlled code.
+name: Request private registration validation
+
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  statuses: write
+
+concurrency:
+  group: private-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Mark this exact commit as pending
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.payload.pull_request.head.sha,
+              state: 'pending',
+              context: 'searobots/validation',
+              description: 'Waiting for private registration validation'
+            });
+
+      - name: Dispatch the private validator
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.LEAGUE_VALIDATOR_DISPATCH_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'thegreystone',
+              repo: 'searobots-league-impl',
+              workflow_id: 'validate-entry.yml',
+              ref: 'main',
+              inputs: {
+                pr_number: String(context.payload.pull_request.number),
+                head_sha: context.payload.pull_request.head.sha
+              }
+            });
+
+      - name: Report dispatch failures
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.payload.pull_request.head.sha,
+              state: 'error',
+              context: 'searobots/validation',
+              description: 'Private validator could not be started'
+            });
