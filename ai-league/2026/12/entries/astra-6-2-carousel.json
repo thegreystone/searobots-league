@@ -1,0 +1,11 @@
+{
+  "slug": "astra-6-2-carousel",
+  "name": "Astra 6.2 Carousel",
+  "shortName": "A6",
+  "githubUser": "thegreystone",
+  "repo": "https://github.com/thegreystone/searobots-claude-astra62",
+  "commit": "6b9a1bb819ac84071bb89b85fa53f42063be6be3",
+  "controllerClass": "searobots.astra.AstraSubmarine",
+  "license": "BSD-3-Clause",
+  "description": "Terrain-aware circuit patrol that searches new arena sectors after a quiet lap."
+}
