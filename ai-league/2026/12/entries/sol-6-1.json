@@ -1,0 +1,11 @@
+{
+  "slug": "sol-6-1",
+  "name": "Sol 6.1",
+  "shortName": "S6",
+  "githubUser": "thegreystone",
+  "repo": "https://github.com/thegreystone/searobots-openai-sol61",
+  "commit": "d503f912b2878a122388570566f05620b678d395",
+  "controllerClass": "se.hirt.searobots.sub.sol61.Sol61Submarine",
+  "license": "BSD-3-Clause",
+  "description": "Independent contact tracking, terrain corridors and predictive torpedo guidance."
+}
