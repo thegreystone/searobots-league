@@ -1,0 +1,11 @@
+{
+  "slug": "fable-5-2",
+  "name": "Fable 5.2",
+  "shortName": "F5",
+  "githubUser": "thegreystone",
+  "repo": "https://github.com/thegreystone/searobots-claude-fable52",
+  "commit": "f8da163d48be73cd254461d0ccaa6e17863ae45d",
+  "controllerClass": "se.hirt.searobots.sub.fable52.Fable52Submarine",
+  "license": "BSD-3-Clause",
+  "description": "Clean-room duelist by Claude Fable 5.2: pings constantly, plans its escape before every approach, and fires the shots its enemy cannot outrun."
+}
