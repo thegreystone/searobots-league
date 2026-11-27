@@ -1,15 +1,21 @@
-# SeaRobots League — Official Rules
+# SeaRobots Leagues — Official Rules
 
 ## 1. Eligibility & Registration
-- **One submarine per person per season**, enforced via the PR author's GitHub account ID.
-- Each monthly season lives under `monthly/<YEAR>/<MONTH>/` (e.g. `monthly/2026/12/`).
-- Registrations close at the `registrationDeadlineUtc` specified in `monthly/<YEAR>/<MONTH>/season.json`
-  (typically `23:59:59 UTC` on the last day of the prior month).
-- The separate `ai-league/` bracket is triggered on demand at maintainer discretion.
+- **Two monthly leagues:**
+  - **Open League (`open-league/<YEAR>/<MONTH>/`):** Open to community submissions.
+    **One submarine per person per season**, enforced via the PR author's GitHub account ID.
+    Built-in SeaRobots AI submarines (`Claude`, `Codex`, `Gemini`) participate as official
+    house entries (`"house": true`, maintainer-managed).
+  - **AI League (`ai-league/<YEAR>/<MONTH>/`):** Closed league for the maintainer's
+    unguided hill-climbing submarines (`"allowDuplicateOwners": true`). Before each new
+    month's freeze, entries may run a standardized improvement pass against the previous
+    month's registered submarines (using the pinned commit SHAs from the prior month's
+    battles).
+- Both leagues run monthly: registrations close at the `registrationDeadlineUtc` specified
+  in `<league>/<YEAR>/<MONTH>/season.json` (typically `23:59:59 UTC` on the last day of
+  the prior month), with the draw on the 1st of the month.
 - Every submission must pin an immutable **40-character commit SHA** on a public GitHub
   repository.
-- Built-in SeaRobots AI submarines (`Claude`, `Codex`, `Gemini`) participate as official
-  house entries (`"house": true`, maintainer-managed).
 
 ## 2. Technical & Security Rules (v1 — Java 25)
 - Submissions must be **pure, self-contained Java 25 source files** under
@@ -46,6 +52,9 @@ All entries undergo an automated AI review and human approval check for good-fai
   Round 1 byes, distributed across the bracket's wings.
 - **Fair seeds:** After registration freezes, the tournament `masterSeed` is derived from
   the frozen entries commit SHA combined with a public verifiable randomness beacon pulse.
+  Individual matchup and game seeds are deterministically derived from `masterSeed` and
+  recorded alongside the published results so any match can be independently replayed and
+  verified.
 - **Draw announcement:** Record and publish every opening matchup, bye, and future bracket slot
   before running tournament combat. The immutable draw also records the pinned entries,
   match settings, engine version, and seed proof. Later rounds advance the winners along
@@ -58,7 +67,7 @@ All entries undergo an automated AI review and human approval check for good-fai
 - **Frozen entries:** The same recorded commits and match settings apply to every round;
   participants cannot replace a submarine between rounds. Completed matchups are checkpointed
   so interrupted runs resume without repeating them.
-- **Best-of-33 combat series (`Bo33`):**
+- **Best-of-17 combat series (`Bo17`):**
   - Standard combat match config: 2-hour max simulation time (50 Hz), 8 torpedoes, 1000 HP,
     plus 25 seconds of post-decision aftermath recorded for Showreels.
   - Spawn slots alternate every game (`(A, B)` on odd games, `(B, A)` on even games).
@@ -66,7 +75,7 @@ All entries undergo an automated AI review and human approval check for good-fai
     and 2-hour timeouts count as draws.
   - **Early clinch:** a series ends as soon as one side cannot be caught or tied
     (`wins > opponentWins + remainingGames`).
-  - **Sudden death & tiebreakers:** if tied after 33 games, up to 6 sudden-death seeds
+  - **Sudden death & tiebreakers:** if tied after 17 games, up to 6 sudden-death seeds
     are played (alternating spawns; first decisive win advances). If still tied, tiebreakers
     apply in order: cumulative HP remaining → total damage dealt → faster average kill
     time → deterministic seeded coin flip.
